@@ -39,3 +39,9 @@ class BaseObject:
     def is_equal(self, expected, actual):
         assert expected==actual, "error"
 
+    def is_text(self, by, locator):
+        element_text = self.is_visible(by, locator).text
+        return element_text
+
+
+

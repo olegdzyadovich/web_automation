@@ -4,7 +4,7 @@ from selenium.webdriver.chrome.options import Options as chrome_options
 import allure
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
-
+from pom.index_page import IndexPage
 
 @pytest.fixture
 def get_chrome_options():
@@ -22,15 +22,18 @@ def get_webdriver(get_chrome_options):
     return driver
 
 
-@pytest.fixture(scope='function')
-def setup(request, get_webdriver):
+@pytest.fixture(scope='function')   #(scope='function') = optional
+def setup(get_webdriver):
     driver = get_webdriver
     url = 'https://www.saucedemo.com/'
-    if request.cls is not None:
-        request.cls.driver = driver
     driver.get(url)
     yield driver
     driver.quit()
+
+@pytest.fixture
+def index_page(setup):
+    yield IndexPage(setup)
+
 
 
 @pytest.hookimpl(hookwrapper=True, tryfirst=True)
