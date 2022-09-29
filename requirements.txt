@@ -1,5 +1,7 @@
 selenium>=4.0.0
 pytest
 webdriver-manager
+pytest-html-reporter
+pytest-rerunfailures
 
 
