@@ -3,5 +3,7 @@ pytest
 webdriver-manager
 pytest-html-reporter
 pytest-rerunfailures
+allure-pytest
+
 
 
