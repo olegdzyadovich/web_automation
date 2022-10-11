@@ -6,6 +6,7 @@ from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from pom.index_page import IndexPage
 
+
 @pytest.fixture
 def get_chrome_options():
     options = chrome_options()
@@ -30,9 +31,11 @@ def setup(get_webdriver):
     yield driver
     driver.quit()
 
+
 @pytest.fixture
 def index_page(setup):
     yield IndexPage(setup)
+
 
 @pytest.hookimpl(hookwrapper=True, tryfirst=True)
 def pytest_runtest_makereport(item):
