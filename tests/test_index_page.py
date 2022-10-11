@@ -17,9 +17,21 @@ def test_login(index_page):
     with allure.step("validate page title text"):
         index_page.assertion_products()
 
-'''random_numbers = [1,2,3]
+
+
+random_numbers = [1,2,3]
 @pytest.mark.smoke
 def test_1():
-    assert 1 == random.choice(random_numbers)'''
+    assert 1 == random.choice(random_numbers)
+
+@pytest.mark.sanity
+def test_2():
+    assert 2 == 3
+
+'''name = "Oleg"
+print(f"my name is {name}")
+
+'''
+
 
 

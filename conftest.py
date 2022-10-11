@@ -10,8 +10,8 @@ from pom.index_page import IndexPage
 def get_chrome_options():
     options = chrome_options()
     options.add_argument('chrome')
-    options.add_argument("--start-maximized")
-
+    #options.add_argument("--start-maximized")
+    options.add_argument("--headless")
     return options
 
 
@@ -49,3 +49,5 @@ def pytest_runtest_makereport(item):
                               attachment_type=allure.attachment_type.PNG)
             except Exception as e:
                 print(e)
+
+

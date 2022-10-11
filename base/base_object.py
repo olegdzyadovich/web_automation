@@ -1,8 +1,13 @@
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as ec
+from utilities.logger import *
+import logging as log
+
 
 class BaseObject:
+    log = log_method(logLevel=log.INFO)
+
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(driver, 5)
@@ -20,6 +25,7 @@ class BaseObject:
         return selectors_dict[by]
 
     def is_visible(self, by, locator):
+        self.log.info("element is visible")
         return self.wait.until(ec.visibility_of_element_located((self.__selenium_by(by), locator)))
 
 

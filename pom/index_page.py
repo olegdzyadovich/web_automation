@@ -18,7 +18,7 @@ class IndexPage(BaseObject):
         self.is_clicking('xpath', l.BUTTON_XPATH)
 
     def assertion_products(self):
-        expected_result = "PRODUCTS"
+        expected_result = "PRODUCTSSS"
         actual_results = self.is_text("xpath" , l2.SUB_TITLE_XPATH)
         self.is_equal(expected_result,actual_results)
 
