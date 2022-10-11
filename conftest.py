@@ -34,8 +34,6 @@ def setup(get_webdriver):
 def index_page(setup):
     yield IndexPage(setup)
 
-
-
 @pytest.hookimpl(hookwrapper=True, tryfirst=True)
 def pytest_runtest_makereport(item):
     outcome = yield
