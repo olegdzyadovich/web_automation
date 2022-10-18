@@ -1,7 +1,13 @@
 from base.base_object import BaseObject
 from locators.locators import LocatorsIndexPage as l, LocatorsMainPage as l2
+import json
 
 
+file = open("passwords.json")
+
+passusername = json.load(file)
+USERNAME = passusername['username']
+PASSWORD = passusername['password']
 
 class IndexPage(BaseObject):
     def __init__(self, driver):
@@ -9,10 +15,10 @@ class IndexPage(BaseObject):
         self.driver = driver
 
     def input_username(self):
-        self.is_typing('xpath',l.USERNAME_FIELD_XPATH, 'standard_user')
+        self.is_typing('xpath',l.USERNAME_FIELD_XPATH, USERNAME)
 
     def input_password(self):
-        self.is_typing('css', l.PASSWORD_FIELD_CSS, 'secret_sauce')
+        self.is_typing('css', l.PASSWORD_FIELD_CSS, PASSWORD)
 
     def press_login_btn(self):
         self.is_clicking('xpath', l.BUTTON_XPATH)
