@@ -25,7 +25,7 @@ class BaseObject:
         return selectors_dict[by]
 
     def is_visible(self, by, locator):
-        self.log.info("element is visible")
+        self.log.info(f"{locator} is visible")
         return self.wait.until(ec.visibility_of_element_located((self.__selenium_by(by), locator)))
 
 
